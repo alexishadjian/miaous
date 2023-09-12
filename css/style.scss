@@ -4,6 +4,8 @@ html{
     height: 100%;
     
     position: relative;
+    font-size: 16px;
+    color: white;
 }
 h1, p, a{
     font-family: 'Jomhuria';
@@ -33,24 +35,41 @@ h1, p, a{
         right: -22px;
         transform: rotate(8deg);
     }
+    nav{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 75%;
+        margin-left: 12.5%;
+        margin-top: 33%;
+        a{
+            background-color: white;
+            color: #9874B4;
+            text-decoration: none;
+            border-radius: 10px;
+            width: 100%;
+            padding: 0px 10px;
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+    }
 }
-nav{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 75%;
-    margin-left: 12.5%;
-    margin-top: 33%;
-    a{
-        background-color: white;
-        color: #9874B4;
-        text-decoration: none;
-        border-radius: 10px;
-        width: 100%;
-        padding: 0px 10px;
+
+#rules{
+    nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        a:first-child img{
+            font-size: 20px;
+        }
+
+    }
+    h1{
         text-align: center;
-        font-size: 36px;
-        margin-bottom: 20px;
+        font-size: 60px;
+        margin-top: 10px;
     }
 }
