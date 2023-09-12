@@ -1,75 +1,35 @@
-// function getLocation() {
-//   // Obtain the initial location one-off
-//   navigator.geolocation.getCurrentPosition(getPosition);
-// }  
-// function stopWatch() {
-//   // Discontinue watch
-//   navigator.geolocation.clearWatch(watchID);
-// }
+// Coordonnées par défaut et niveau de zoom initial
+const map = L.map('map').setView([0, 0], 19.5);
 
-// if (navigator.geolocation) {
-//     navigator.geolocation.getCurrentPosition((position) => {
-        
-//         const userPos = {
-//             lat: position.coords.latitude,
-//             lng: position.coords.longitude,
-//         };
-//     });
-// }
+// Ajouter une carte OpenStreetMap
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
-// function setPosition(position) {
-//     console.log(position);
-//     const userPos = {
-//         lat: position.coords.latitude,
-//         lng: position.coords.longitude,
-//     };
-//     console.log(userPos);
-//     var marker = L.marker([userPos.lat, userPos.lng]).addTo(map);
-//     map.setView([userPos.lat, userPos.lng], 13);
+// Créer un marker pour la position de l'utilisateur
+const userMarker = L.marker([0, 0]).addTo(map);
 
-// }
+// Fonction pour mettre à jour la position de l'utilisateur
+function updateUserLocation(position) {
+    const lat = position.coords.latitude;
+    const lon = position.coords.longitude;
 
+    // Mettre à jour la position du marker
+    userMarker.setLatLng([lat, lon]);
 
-let userLat = document.querySelector('#user-lat');
-let userLong = document.querySelector('#user-long');
-  
-function watchLocation() {
-  // Obtain the location at regularly interval
-  watchID = navigator.geolocation.watchPosition(successCallback);
+    // Centrer la carte sur la nouvelle position
+    map.setView([lat, lon], 19.5);
 }
 
-const successCallback = (position) => {
+// Fonction pour gérer les erreurs de géolocalisation
+function handleLocationError(error) {
+    console.error(error.message);
+}
 
-    const userPos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude,
-    };
-    console.log(userPos);
-
-    map.setView([userPos.lat, userPos.lng], 19);
-    marker.setLatLng([userPos.lat, userPos.lng]);
-
-    userLat.innerHTML = userPos.lat;
-    userLong.innerHTML = userPos.lng;
-
-};
-
-watchLocation();
-
-
-
-
-
-var map = L.map('map');
-var marker = L.marker([51.5, -0.09]).addTo(map);
-
-
-
-
-
-
-
-
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-}).addTo(map);
+// Vérifier si le navigateur prend en charge la géolocalisation
+if ("geolocation" in navigator) {
+    // Obtenir la position de l'utilisateur en temps réel
+    navigator.geolocation.watchPosition(updateUserLocation, handleLocationError, {
+        enableHighAccuracy: true // Utiliser la géolocalisation précise si disponible
+    });
+} else {
+    alert("La géolocalisation n'est pas disponible dans votre navigateur.");
+}
