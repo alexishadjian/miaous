@@ -1,3 +1,56 @@
+@import "font.scss";
 html{
-    background-color: red;
+    background: linear-gradient(0.5turn, #192F5A, #9874B4);
+    height: 100%;
+    
+    position: relative;
+}
+h1, p, a{
+    font-family: 'Jomhuria';
+    letter-spacing: 3px ;
+}
+
+#index {
+    h1{
+        color: white;
+        position: relative;
+        font-size: 128px;
+        text-align: center;
+
+        span{
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+            transform: rotate(-8deg);
+            font-family: 'JetBrainsMono';
+            font-size: 32px;
+        }
+    }
+    img{
+        width: 60%;
+        position: absolute;
+        bottom: -18px;
+        right: -22px;
+        transform: rotate(8deg);
+    }
+}
+nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+    margin-left: 12.5%;
+    margin-top: 33%;
+    a{
+        background-color: white;
+        color: #9874B4;
+        text-decoration: none;
+        border-radius: 10px;
+        width: 100%;
+        padding: 0px 10px;
+        text-align: center;
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
 }
