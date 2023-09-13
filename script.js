@@ -12,8 +12,8 @@ const userMarker = L.marker([0, 0]).addTo(map);
 
 //Position de la souris en dure
 const mousePos = {
-    lat: 48.859310278281065,
-    lng: 2.37353404205526,
+    lat: 48.85847196287685,
+    lng: 2.3745613210757783
 }
 
 //Créer un marker pour la souris
@@ -21,19 +21,34 @@ const mouseMarker = L.marker([mousePos.lat, mousePos.lng]).addTo(map);
 
 // Fonction pour mettre à jour la position de l'utilisateur
 function updateUserLocation(position) {
-    const lat = position.coords.latitude;
-    const lon = position.coords.longitude;
+    let userPos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+    }
 
     // Mettre à jour la position du marker
-    userMarker.setLatLng([lat, lon]);
+    userMarker.setLatLng([userPos.lat, userPos.lng]);
 
     // Centrer la carte sur la nouvelle position
-    map.setView([lat, lon], 19.5);
+    map.setView([userPos.lat, userPos.lng], 19.5);
 
-    //Mise à jour de la distance entre le joueur et la souris 
-    let distance = map.distance([lat, lon], [mousePos.lat, mousePos.lng])
+    updateDistance(userPos);
+
+    checkDistance(userPos, mousePos);
+
+}
+
+//Mise à jour de la distance entre le joueur et la souris 
+function updateDistance(userPos) {
+    let distance = map.distance([userPos.lat, userPos.lng], [mousePos.lat, mousePos.lng])
     distanceTag.innerHTML = Math.round(distance) + ' mètres';
+}
 
+function checkDistance(userPos, mousePos) {
+    let distance = map.distance([userPos.lat, userPos.lng], [mousePos.lat, mousePos.lng])
+    if ( distance < 10 ) {
+        alert('Tu as attrapé la souris');
+    }
 }
 
 // Fonction pour gérer les erreurs de géolocalisation
