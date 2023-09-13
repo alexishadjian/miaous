@@ -32,13 +32,15 @@ const userCircle = L.circle([0, 0], {
 
 //Position de la souris en dure
 const mousePos = {
-    lat: 0,
-    lng: 0,
+    coords: {
+        latitude: 0,
+        longitude: 0,
+    }
 }
 
 function mouse(position){
     if (Math.random(2) === 0) {
-        var latitudesouris = position.coords.latitude + Math.random() / 25;
+        var latitudesouris = position.coords.latitude + Math.random() / 400;
     }
     else {
         var latitudesouris = position.coords.latitude - Math.random() / 400;
@@ -51,46 +53,51 @@ function mouse(position){
     }
     // Mettre à jour la position du marker
     mouseMarker.setLatLng([latitudesouris, longitudesouris]);
-    mousePos.lat = latitudesouris;
-    mousePos.lng = longitudesouris;
+    mousePos.coords.latitude = latitudesouris;
+    mousePos.coords.longitude = longitudesouris;
 }
 
 //Créer un marker pour la souris
-const mouseMarker = L.marker([mousePos.lat, mousePos.lng], {icon: mouseIconMarker}).addTo(map);
+const mouseMarker = L.marker([mousePos.coords.latitude, mousePos.coords.longitude], {icon: mouseIconMarker}).addTo(map);
 
 // Fonction pour mettre à jour la position de l'utilisateur
 function updateUserLocation(position) {
     let userPos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude,
+        coords: {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+        }
     }
 
     // Mettre à jour la position du marker
-    userMarker.setLatLng([userPos.lat, userPos.lng]);
-    userCircle.setLatLng([userPos.lat, userPos.lng]);
+    userMarker.setLatLng([userPos.coords.latitude, userPos.coords.longitude]);
+    userCircle.setLatLng([userPos.coords.latitude, userPos.coords.longitude]);
 
     // Centrer la carte sur la nouvelle position
-    map.setView([userPos.lat, userPos.lng]);
+    map.setView([userPos.coords.latitude, userPos.coords.longitude]);
 
+    // Mise à jour de l'affichage de la distance
     updateDistance(userPos);
 
+    //Vérifie si le joeur atteint une souris
     checkDistance(userPos, mousePos);
 
 }
 
 //Mise à jour de la distance entre le joueur et la souris 
 function updateDistance(userPos) {
-    let distance = map.distance([userPos.lat, userPos.lng], [mousePos.lat, mousePos.lng])
+    let distance = map.distance([userPos.coords.latitude, userPos.coords.longitude], [mousePos.coords.latitude, mousePos.coords.longitude])
     distanceTag.innerHTML = Math.round(distance) + ' mètres';
 }
 
 function checkDistance(userPos, mousePos) {
-    let distance = map.distance([userPos.lat, userPos.lng], [mousePos.lat, mousePos.lng])
-    if ( distance < 20 ) {
+    let distance = map.distance([userPos.coords.latitude, userPos.coords.longitude], [mousePos.coords.latitude, mousePos.coords.longitude])
+    if ( distance < 30 ) {
         console.log('Tu as attrapé la souris');
-        mouse(userPos);
         userScore += 10;
         scoreTag.innerHTML = userScore + ' points';
+        mouse(userPos);
+        updateDistance(userPos);
     }
 }
 
