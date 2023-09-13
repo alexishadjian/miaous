@@ -12,8 +12,8 @@ const userMarker = L.marker([0, 0]).addTo(map);
 
 //Position de la souris en dure
 const mousePos = {
-    lat: 48.85847196287685,
-    lng: 2.3745613210757783
+    lat: 48.85916286666549,
+    lng: 2.3736209650085365
 }
 
 //Créer un marker pour la souris
