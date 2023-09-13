@@ -1,4 +1,3 @@
-
 const distanceTag = document.querySelector('.distance');
 
 // Coordonnées par défaut et niveau de zoom initial
@@ -7,8 +6,14 @@ const map = L.map('map').setView([0, 0], 19.5);
 // Ajouter une carte OpenStreetMap
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
+//User marker
+var iconMarker = L.icon({
+    iconUrl: 'assets/img/cat.png',
+    iconSize: [50, 50],
+});
+
 // Créer un marker pour la position de l'utilisateur
-const userMarker = L.marker([0, 0]).addTo(map);
+const userMarker = L.marker([0, 0], {icon: iconMarker}).addTo(map);
 
 //Position de la souris en dure
 const mousePos = {
@@ -30,7 +35,7 @@ function updateUserLocation(position) {
     userMarker.setLatLng([userPos.lat, userPos.lng]);
 
     // Centrer la carte sur la nouvelle position
-    map.setView([userPos.lat, userPos.lng], 19.5);
+    map.setView([userPos.lat, userPos.lng]);
 
     updateDistance(userPos);
 
@@ -46,7 +51,7 @@ function updateDistance(userPos) {
 
 function checkDistance(userPos, mousePos) {
     let distance = map.distance([userPos.lat, userPos.lng], [mousePos.lat, mousePos.lng])
-    if ( distance < 10 ) {
+    if ( distance < 20 ) {
         alert('Tu as attrapé la souris');
     }
 }
