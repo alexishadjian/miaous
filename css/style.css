@@ -1,0 +1,101 @@
+@import "normalize.css";
+@import "font.css";
+
+html {
+    background: linear-gradient(0.64turn, #192F5A, #9874B4);
+    font-size: 16px;
+    color: white;
+}
+body {
+    min-height: 100vh;
+    position: relative;
+}
+h1, p, a {
+    /* font-family: 'Jomhuria'; */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    letter-spacing: 3px ;
+}
+img {
+    width: 100%;
+}
+
+.wrapper {
+    max-width: 800px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+/*Index*/
+
+#index h1 {
+    color: white;
+    position: relative;
+    font-size: 128px;
+    text-align: center;
+} 
+#index #cat {
+    width: 150px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+#index nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - 40px);
+    margin-top: 50px;
+    margin: 0 auto;
+}
+#index nav a {
+    background-color: white;
+    color: #9874B4;
+    text-decoration: none;
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    box-shadow: 10px 10px 0 #9874B4;
+    transition: 0.2s;
+}
+
+#index nav a:active {
+    box-shadow: 0px 0px 0 #9874B4;
+}
+
+/*Rules*/
+
+#rules nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#rules a:first-child img {
+    font-size: 20px;
+}
+
+#rules h1 {
+    text-align: center;
+    font-size: 60px;
+    margin-top: 10px;
+}
+
+
+/*Play*/
+
+#play #map { 
+    height: 80vh;
+}
+
+#play .bottom-infos {
+    
+}
+
+#play .bottom-infos p {
+    font-weight: bold;
+}

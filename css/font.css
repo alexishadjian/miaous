@@ -1,0 +1,11 @@
+@font-face {
+    font-family: Jomhuria;
+    src: url(../assets/fonts/Jomhuria-Regular.ttf) format("ttf"), 
+        url(../assets/font/Jomhuria-Regular.woff) format("woff");
+    font-stretch: condensed;
+}
+@font-face {
+    font-family: JetBrainsMono;
+    src: url(../assets/font/JetBrainsMono-VariableFont_wght.ttf) format("ttf"),
+    url(../assets/font/JetBrainsMono-VariableFont_wght.woff) format("woff");
+}
