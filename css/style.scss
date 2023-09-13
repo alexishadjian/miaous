@@ -17,19 +17,20 @@ h1, p, a{
         color: white;
         position: relative;
         font-size: 128px;
-        text-align: center;
+        width: fit-content;
+        margin-left: calc(50% - 128px);
 
         span{
             position: absolute;
             bottom: 0px;
-            right: 0px;
+            right: -44px;
             transform: rotate(-8deg);
             font-family: 'JetBrainsMono';
             font-size: 32px;
         }
     }
     img{
-        width: 60%;
+        width: 184px;
         position: absolute;
         bottom: -18px;
         right: -22px;
@@ -42,7 +43,7 @@ h1, p, a{
         align-items: center;
         width: 75%;
         margin-left: 12.5%;
-        margin-top: 33%;
+        margin-top: 21%;
         a{
             background-color: white;
             color: #9874B4;
