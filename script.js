@@ -1,3 +1,6 @@
+
+const distanceTag = document.querySelector('.distance');
+
 // Coordonnées par défaut et niveau de zoom initial
 const map = L.map('map').setView([0, 0], 19.5);
 
@@ -6,6 +9,15 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
 // Créer un marker pour la position de l'utilisateur
 const userMarker = L.marker([0, 0]).addTo(map);
+
+//Position de la souris en dure
+const mousePos = {
+    lat: 48.859310278281065,
+    lng: 2.37353404205526,
+}
+
+//Créer un marker pour la souris
+const mouseMarker = L.marker([mousePos.lat, mousePos.lng]).addTo(map);
 
 // Fonction pour mettre à jour la position de l'utilisateur
 function updateUserLocation(position) {
@@ -17,6 +29,11 @@ function updateUserLocation(position) {
 
     // Centrer la carte sur la nouvelle position
     map.setView([lat, lon], 19.5);
+
+    //Mise à jour de la distance entre le joueur et la souris 
+    let distance = map.distance([lat, lon], [mousePos.lat, mousePos.lng])
+    distanceTag.innerHTML = Math.round(distance) + ' mètres';
+
 }
 
 // Fonction pour gérer les erreurs de géolocalisation
