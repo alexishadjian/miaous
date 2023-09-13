@@ -17,24 +17,13 @@ h1, p, a{
         color: white;
         position: relative;
         font-size: 128px;
-        width: fit-content;
-        margin-left: calc(50% - 128px);
-
-        span{
-            position: absolute;
-            bottom: 0px;
-            right: -44px;
-            transform: rotate(-8deg);
-            font-family: 'JetBrainsMono';
-            font-size: 32px;
-        }
+        text-align: center;
     }
     img{
         width: 184px;
         position: absolute;
-        bottom: -18px;
-        right: -22px;
-        transform: rotate(8deg);
+        bottom: 0px;
+        right: 0px;
     }
     nav{
         display: flex;
