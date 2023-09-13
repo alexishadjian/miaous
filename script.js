@@ -1,5 +1,6 @@
 const distanceTag = document.querySelector('.distance');
 const scoreTag = document.querySelector('.score');
+let userScore = 0;
 
 // Coordonnées par défaut et niveau de zoom initial
 const map = L.map('map').setView([0, 0], 19.5);
@@ -88,7 +89,8 @@ function checkDistance(userPos, mousePos) {
     if ( distance < 20 ) {
         console.log('Tu as attrapé la souris');
         mouse(userPos);
-        scoreTag.innerHTML += 10;
+        userScore += 10;
+        scoreTag.innerHTML = userScore + ' points';
     }
 }
 
