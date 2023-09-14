@@ -143,6 +143,10 @@ if ( mapTag ) {
             scoreTag.innerHTML = userScore;
             scoreFinal.value = userScore;
 
+            //Reset time
+            let temps = 5 * 60
+            localStorage.setItem('temps', temps)
+
             mouse(userPos);
             updateDistance(userPos);
             console.log(localStorage.getItem('respawn'))
@@ -171,20 +175,36 @@ if ( mapTag ) {
     const departMinutes = 5
     let temps = departMinutes * 60
 
+        
+    if ( localStorage.getItem('temps') ) {
+        temps = localStorage.getItem('temps');
+    }
+
     const timerElement = document.getElementById("timer");
 
+    // minutes = localStorage.getItem('minutes', minutes);
+    // secondes = localStorage.getItem('secondes', secondes);
+    
     setInterval(() => {
-        let minutes = parseInt(temps / 60, 10)
-        let secondes = parseInt(temps % 60, 10)
+        
+        let minutes;
+        let secondes;
+
+        minutes = parseInt(temps / 60, 10)
+        secondes = parseInt(temps % 60, 10)
+         
 
         minutes = minutes < 10 ? "0" + minutes : minutes
         secondes = secondes < 10 ? "0" + secondes : secondes
 
+        
         timerElement.innerText = `${minutes}:${secondes}`
         temps = temps <= 0 ? 0 : temps - 1
-        if (temps + 2 === 296) {
+        localStorage.setItem('temps', temps);
+
+        if (temps === 0) {
             document.getElementById("gameover").style.display = "block";
-            // localStorage.clear();
+            localStorage.clear();
             console.log('clear')
         }
 
