@@ -99,3 +99,16 @@ img {
 #play .bottom-infos p {
     font-weight: bold;
 }
+#timer {
+    font-weight: bold;
+    font-size: 2em;
+}
+
+#gameover {
+    width: 100%;
+    height: 100vh;
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    background-color: rgba(230, 20,10, 50%);
+}
