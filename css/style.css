@@ -219,3 +219,36 @@ img {
         font-size: 10vw;
     }
 }
+
+/*Rank*/
+
+table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 16px;
+}
+
+.main-title-table {
+    background-color: #9874B4;
+    color: white;
+}
+
+table td, table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.title-table {
+    width: 50%;
+}
+
+table tr:nth-child(even){background-color: #192F5A;}
+
+/* table tr:hover:not(.main-title-table) {background-color: #ddd;} */
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+}

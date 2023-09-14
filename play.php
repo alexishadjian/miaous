@@ -1,6 +1,15 @@
 <?php require_once 'components/header.php'; ?>
     <div id="gameover">
         <p>Game Over</p>
+
+        <form action="./model/savePlayer.php" method="POST">
+            <label><b>Enregistrer votre score :</b></label>
+            <input name="pseudo" id="pseudo" type="text" placeholder="Entrez votre pseudo" required>
+            <input class="finalScore" name="score" type="hidden" value="">
+
+            <input name="savePlayer" type="submit" id='submit'>
+        </form>
+
         <div class="play-navigation">
             <a class="nav-gameover" href="play.php">Rejouer</a>
             <a class="nav-gameover" href="index.php">Retour a l'accueil</a>

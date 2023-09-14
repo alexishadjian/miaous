@@ -1,10 +1,13 @@
 const distanceTag = document.querySelector('.distance');
 const scoreTag = document.querySelector('.score');
+const scoreFinal = document.querySelector('.finalScore')
 let userScore = 0;
 if (localStorage.getItem('score')) {
     userScore = localStorage.getItem('score');
 }
-scoreTag.innerHTML = userScore
+if (scoreTag) {
+    scoreTag.innerHTML = userScore
+}
 
 const mapTag = document.querySelector('#map');
 
@@ -138,7 +141,7 @@ if ( mapTag ) {
             userScore += 10;
             localStorage.setItem('score', userScore);
             scoreTag.innerHTML = userScore;
-
+            scoreFinal.value = userScore;
 
             mouse(userPos);
             updateDistance(userPos);
@@ -179,7 +182,7 @@ if ( mapTag ) {
 
         timerElement.innerText = `${minutes}:${secondes}`
         temps = temps <= 0 ? 0 : temps - 1
-        if (temps === 0) {
+        if (temps + 2 === 296) {
             document.getElementById("gameover").style.display = "block";
             // localStorage.clear();
             console.log('clear')

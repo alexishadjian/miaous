@@ -5,6 +5,7 @@
     <nav>
         <a href="play.php">Jouer</a>
         <a href="rules.php">Règles</a>
+        <a href="rankView.php">Classement</a>
     </nav>
     <img src="assets/img/rattata.png" alt="image de chat" id="cat">
 </div>
