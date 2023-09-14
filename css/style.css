@@ -112,3 +112,7 @@ img {
     z-index: 1000;
     background-color: rgba(230, 20,10, 50%);
 }
+
+footer {
+    padding: 25px;
+}
