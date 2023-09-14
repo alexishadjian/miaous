@@ -88,16 +88,39 @@ img {
 
 /*Play*/
 
+#play .map-container {
+    height: 100vh;
+    position: relative;
+}
+
 #play #map { 
-    height: 80vh;
+    height: 100%;
+
 }
 
-#play .bottom-infos {
-    
+#play .top-infos {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 999;
 }
 
-#play .bottom-infos p {
+#play .top-infos p {
     font-weight: bold;
+}
+
+#play .top-infos .score-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background-color: #192F5A;
+    border-radius: 40px;
+}
+
+#play .top-infos .score-container img {
+    width: 40px;
 }
 #timer {
     font-weight: bold;
