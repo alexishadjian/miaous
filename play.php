@@ -2,17 +2,19 @@
     <div id="gameover">
         <p>Game Over</p>
 
+        <span class="score-txt">Vous avez fait un score de <span class="gameover-score"></span></span>
+
         <form action="./model/savePlayer.php" method="POST">
-            <label><b>Enregistrer votre score :</b></label>
+            <label><b>Enregistrez votre score :</b></label>
             <input name="pseudo" id="pseudo" type="text" placeholder="Entrez votre pseudo" required>
             <input class="finalScore" name="score" type="hidden" value="">
 
-            <input name="savePlayer" type="submit" id='submit'>
+            <input name="savePlayer" type="submit" id='submit' value="Envoyer">
         </form>
 
         <div class="play-navigation">
             <a class="nav-gameover" href="play.php">Rejouer</a>
-            <a class="nav-gameover" href="index.php">Retour a l'accueil</a>
+            <a class="nav-gameover" href="index.php">Retour à l'accueil</a>
         </div>
     </div>
 <div id="play">

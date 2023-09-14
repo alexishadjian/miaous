@@ -1,12 +1,14 @@
 const distanceTag = document.querySelector('.distance');
 const scoreTag = document.querySelector('.score');
 const scoreFinal = document.querySelector('.finalScore')
+const goScore = document.querySelector('.gameover-score');
 let userScore = 0;
 if (localStorage.getItem('score')) {
     userScore = localStorage.getItem('score');
 }
 if (scoreTag) {
-    scoreTag.innerHTML = userScore
+    scoreTag.innerHTML = userScore;
+    goScore.innerHTML = userScore;
 }
 
 const mapTag = document.querySelector('#map');
@@ -202,8 +204,8 @@ if ( mapTag ) {
         temps = temps <= 0 ? 0 : temps - 1
         localStorage.setItem('temps', temps);
 
-        if (temps === 0) {
-            document.getElementById("gameover").style.display = "block";
+        if (temps <= 0) {
+            document.getElementById("gameover").style.display = "flex";
             localStorage.clear();
             console.log('clear')
         }
