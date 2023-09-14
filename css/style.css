@@ -132,8 +132,47 @@ img {
     height: 100vh;
     display: none;
     position: absolute;
-    z-index: 1000;
+    z-index: 10000;
     background-color: rgba(230, 20,10, 50%);
+    text-align: center;
+    padding-top: 250px;
+}
+
+#gameover p {
+    margin: auto;
+    font-size: 4vw;
+    margin-bottom: 50px;
+}
+
+.nav-gameover{
+    background-color: white;
+    color: #9874B4;
+    text-decoration: none;
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    box-shadow: 10px 10px 0 #9874B4;
+    transition: 0.2s;
+}
+
+.play-navigation {
+    display: grid;
+    width: 30%;
+    margin: auto;
+}
+
+@media  screen and (max-width: 900px) {
+    .play-navigation {
+        width: 90%;
+    }
+
+    #gameover p {
+        font-size: 10vw;
+    }
 }
 
 footer {

@@ -1,5 +1,11 @@
 <?php require_once 'components/header.php'; ?>
-<div id="gameover"><p>Game Over</p></div>
+    <div id="gameover">
+        <p>Game Over</p>
+        <div class="play-navigation">
+            <a class="nav-gameover" href="play.php">Rejouer</a>
+            <a class="nav-gameover" href="index.php">Retour a l'accueil</a>
+        </div>
+    </div>
 <div id="play">
 
     <div class="map-container">

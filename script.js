@@ -137,7 +137,7 @@ if ( mapTag ) {
 
         timerElement.innerText = `${minutes}:${secondes}`
         temps = temps <= 0 ? 0 : temps - 1
-        if (temps + 2 === 0) {
+        if (temps + 2 === 296) {
             document.getElementById("gameover").style.display = "block"
         }
 
