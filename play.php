@@ -4,8 +4,8 @@
     <div id="map"></div>
 
     <div class="bottom-infos wrapper">
-        <p>Distance : <span class="distance">0</span></p>
-        <p>Score : <span class="score">0</span></p>
+        <p>Distance : <span class="distance">0</span> mètres</p>
+        <p>Score : <span class="score">0</span> points</p>
     </div>
 </div>
 
