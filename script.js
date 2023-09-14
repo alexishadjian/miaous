@@ -1,6 +1,10 @@
 const distanceTag = document.querySelector('.distance');
 const scoreTag = document.querySelector('.score');
 let userScore = 0;
+if (localStorage.getItem('score')) {
+    userScore = localStorage.getItem('score');
+}
+scoreTag.innerHTML = userScore
 
 const mapTag = document.querySelector('#map');
 
@@ -42,22 +46,52 @@ if ( mapTag ) {
     }
 
     function mouse(position){
-        if (Math.random(2) === 0) {
-            var latitudesouris = position.coords.latitude + Math.random() / 400;
-        }
-        else {
-            var latitudesouris = position.coords.latitude - Math.random() / 400;
-        }
-        if (Math.random(2) === 0) {
-            var longitudesouris = position.coords.longitude + Math.random() / 400;
-        }
-        else {
-            var longitudesouris = position.coords.longitude - Math.random() / 400;
+        console.log(localStorage.getItem('latitudesouris'))
+
+        //Si la souris n'a pas encore été positionnée 
+        if ( !localStorage.getItem('latitudesouris') ) {
+            if (Math.random(2) === 0) {
+                var latitudesouris = position.coords.latitude + Math.random() / 400;
+                localStorage.setItem('latitudesouris', latitudesouris);
+            }
+            else {
+                var latitudesouris = position.coords.latitude - Math.random() / 400;
+                localStorage.setItem('latitudesouris', latitudesouris);
+            }
+            if (Math.random(2) === 0) {
+                var longitudesouris = position.coords.longitude + Math.random() / 400;
+                localStorage.setItem('longitudesouris', longitudesouris);
+            }
+            else {
+                var longitudesouris = position.coords.longitude - Math.random() / 400;
+                localStorage.setItem('longitudesouris', longitudesouris);
+            }
+            //Si la souris à dejà été possitionné et qu'elle change de possition
+        } else if ( localStorage.getItem('respawn') ) {
+            console.log('elseif respawn')
+            console.log(localStorage.getItem('respawn'))
+            if (Math.random(2) === 0) {
+                var latitudesouris = position.coords.latitude + Math.random() / 400;
+                localStorage.setItem('latitudesouris', latitudesouris);
+            }
+            else {
+                var latitudesouris = position.coords.latitude - Math.random() / 400;
+                localStorage.setItem('latitudesouris', latitudesouris);
+            }
+            if (Math.random(2) === 0) {
+                var longitudesouris = position.coords.longitude + Math.random() / 400;
+                localStorage.setItem('longitudesouris', longitudesouris);
+            }
+            else {
+                var longitudesouris = position.coords.longitude - Math.random() / 400;
+                localStorage.setItem('longitudesouris', longitudesouris);
+            }
+            localStorage.setItem('respawn', '');
         }
         // Mettre à jour la position du marker
-        mouseMarker.setLatLng([latitudesouris, longitudesouris]);
-        mousePos.coords.latitude = latitudesouris;
-        mousePos.coords.longitude = longitudesouris;
+        mouseMarker.setLatLng([localStorage.getItem('latitudesouris'), localStorage.getItem('longitudesouris')]);
+        mousePos.coords.latitude = localStorage.getItem('latitudesouris');
+        mousePos.coords.longitude = localStorage.getItem('longitudesouris');
     }
 
     //Créer un marker pour la souris
@@ -97,10 +131,18 @@ if ( mapTag ) {
         let distance = map.distance([userPos.coords.latitude, userPos.coords.longitude], [mousePos.coords.latitude, mousePos.coords.longitude])
         if ( distance < 30 ) {
             console.log('Tu as attrapé la souris');
+            localStorage.setItem('respawn', true);
+
+            //Score
+            userScore = localStorage.getItem('score');
             userScore += 10;
+            localStorage.setItem('score', userScore);
             scoreTag.innerHTML = userScore;
+
+
             mouse(userPos);
             updateDistance(userPos);
+            console.log(localStorage.getItem('respawn'))
         }
     }
 
@@ -126,7 +168,7 @@ if ( mapTag ) {
     const departMinutes = 5
     let temps = departMinutes * 60
 
-    const timerElement = document.getElementById("timer")
+    const timerElement = document.getElementById("timer");
 
     setInterval(() => {
         let minutes = parseInt(temps / 60, 10)
@@ -137,8 +179,10 @@ if ( mapTag ) {
 
         timerElement.innerText = `${minutes}:${secondes}`
         temps = temps <= 0 ? 0 : temps - 1
-        if (temps + 2 === 296) {
-            document.getElementById("gameover").style.display = "block"
+        if (temps === 0) {
+            document.getElementById("gameover").style.display = "block";
+            // localStorage.clear();
+            console.log('clear')
         }
 
     }, 1000)
