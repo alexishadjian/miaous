@@ -103,28 +103,60 @@ img {
     top: 20px;
     left: 50%;
     transform: translate(-50%, 0);
+    display: flex;
+    justify-content: space-between;
     z-index: 999;
 }
 
-#play .top-infos p {
+#play .top-infos .score-container .score {
+    font-size: 18px;
     font-weight: bold;
 }
 
-#play .top-infos .score-container {
+#play .top-infos .score-container, .top-infos .timer-container, .bottom-infos .distance-container {
     display: flex;
     align-items: center;
-    gap: 15px;
-    padding: 15px;
+    gap: 5px;
+    padding: 5px;
     background-color: #192F5A;
     border-radius: 40px;
+    min-width: 100px;
+}
+
+#play .top-infos .timer-container {
+    justify-content: center;
 }
 
 #play .top-infos .score-container img {
     width: 40px;
 }
+
+#play .bottom-infos {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 999;
+}
+
+#play .bottom-infos .distance-container {
+    padding: 10px;
+}
+
+#play .bottom-infos .distance-container .distance {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.leaflet-control-attribution {
+    display: none;
+}
+
 #timer {
     font-weight: bold;
-    font-size: 2em;
+    font-size: 1.6em;
 }
 
 #gameover {
@@ -163,6 +195,15 @@ img {
     display: grid;
     width: 30%;
     margin: auto;
+}
+
+.leaflet-control-container .leaflet-control {
+    margin-bottom: 10px;
+}
+
+.leaflet-control-container .leaflet-left {
+    bottom: 0;
+    top: unset;
 }
 
 @media  screen and (max-width: 900px) {

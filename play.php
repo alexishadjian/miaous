@@ -15,8 +15,14 @@
                 <img src="assets/img/etoile.png" alt="">
                 <span class="score">0</span>
             </div>
-            <p>Distance : <span class="distance">0</span> mètres</p>
-            <p>Temps restant : <span id="timer"></span></p>
+            <div class="timer-container">
+                <span id="timer">0</span>
+            </div>
+        </div>
+        <div class="bottom-infos wrapper">
+            <div class="distance-container">
+                <span class="distance">0</span><span>mètres</span>
+            </div>
         </div>
     </div>
 
