@@ -24,7 +24,7 @@
     
     <h3>Gestion du Temps :</h3>
 
-    <p>Vous avez un temps limité (ex. 3 minutes) pour attraper la prochaine souris et ainsi de suite.</p>
+    <p>Vous avez un temps limité (ex. 3 minutes) pour attraper le maximum de souris.</p>
     
     <h3>Calcul du Score :</h3>
 
@@ -34,10 +34,6 @@
     <h3>Classement :</h3>
 
     <p>Consultez le classement en ligne pour voir comment vous vous comparez aux autres joueurs.</p>
-    
-    <h3>Récompenses :</h3>
-
-    <p>Gagnez des médailles et des récompenses spéciales pour des performances exceptionnelles.</p>
     
     <h3>Sécurité :</h3>
 

@@ -146,7 +146,7 @@ if ( mapTag ) {
             scoreFinal.value = userScore;
 
             //Reset time
-            let temps = 5 * 60
+            let temps = 10 * 60
             localStorage.setItem('temps', temps)
 
             mouse(userPos);
@@ -174,7 +174,7 @@ if ( mapTag ) {
     }
 
     //timer
-    const departMinutes = 5
+    const departMinutes = 10
     let temps = departMinutes * 60
 
         
